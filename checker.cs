@@ -8,7 +8,7 @@ class Checker
     {
         static bool Temp_ok(float temp)
         {
-         if(temperature < 0 || temperature > 45) 
+         if(temp < 0 || temp > 45) 
         {
             Console.WriteLine("Temperature is out of range!");
             return false;
@@ -26,7 +26,7 @@ class Checker
         }
         static bool charge_rate_ok(float charge_rate)
         {
-          if(chargeRate > 0.8) 
+          if(charge_rate > 0.8) 
           {
             Console.WriteLine("Charge Rate is out of range!");
             return false;
