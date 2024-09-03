@@ -6,7 +6,7 @@ class Checker
 {
     static bool batteryIsOk(float temp, float soc, float charge_rate) 
     {
-        return temp_ok(temp)&& soc_ok(soc)&& charge_rate_ok(charge_rate);
+        return Temp_ok(temp)&& soc_ok(soc)&& charge_rate_ok(charge_rate);
     }
     static bool Temp_ok(float temp)
     {
