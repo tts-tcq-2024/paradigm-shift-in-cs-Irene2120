@@ -4,7 +4,7 @@ namespace paradigm_shift_csharp
 {
 class Checker
 {
-    static WarningConfig warningConfig = new WarningConfig
+    static WarningConfigure  warningConfig = new WarningConfig
     {
         TempWarningThreshold = 5,
         SoCWarningThreshold = 4,
