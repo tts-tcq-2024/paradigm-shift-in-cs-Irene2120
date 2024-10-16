@@ -2,24 +2,12 @@ using System;
 
 namespace paradigm_shift_csharp
 {
-class Checker
+class Check_StatusoOfBattery 
 {
-    static WarningConfigure  warningConfig = new WarningConfig
-    {
-        TempWarningThreshold = 5,
-        SoCWarningThreshold = 4,
-        ChargeRateWarningThreshold = 0.04f
-        };
-    
-static void Main()
-{
-    BtteryParameterChecker checker = new BatteryParameterChecker(warningConfig);
-    
-    ExpectTrue(batteryIsOk(25,70,0.7f));      //values within range
-    ExpectFalse(batteryIsOk(50,85,0.0f)); //values not within range
-    Console.WriteLine("All ok");
-}
-   static void ExpectTrue(bool expression)
+   Public const float Minimum_Soc =20f, Maximum_Soc=80f;
+   Public const float Minimum_Temp =0f, Maximum_Temp=45f;
+   CheckBattery batterylimit = new CheckBattery();
+   public void ExpectTrue(bool expression)
    {
        if(!expression)
        {
@@ -27,7 +15,7 @@ static void Main()
            Environment.Exit(1);
        }
    }
-    static void ExpectFalse(bool expression)
+    public void ExpectFalse(bool expression)
     {
         if(expression)
         {
@@ -35,6 +23,11 @@ static void Main()
             Environment.Exit(1);
         }
     }
+    public static bool BatteryIsOk(float temp,float soc,float chargerate)
+    {
+        return CheckBattery.CheckLimit(temp,Minimum_Temp,Maximum_Temp,"Temperature",true) &&
+            CheckBattery.CheckLimit(soc,Minimum_Soc,Maximum_Soc,"SoC",true) &&
+            CheckBattery.CheckLimit(chargerate);
 }
 }
 
