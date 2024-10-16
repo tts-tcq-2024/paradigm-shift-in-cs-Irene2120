@@ -16,31 +16,39 @@ namespace ParadigmShiftCSharp
             return ValidateChargeRate(chargeRate);
         }
 
-        private static bool ValidateRange(float value, float minValue, float maxValue, string parameter, bool validate)
-        {
-            if (value < minValue || value > maxValue)
-            {
-                Console.WriteLine($"{parameter} is out of range!");
-                return false;
-            }
-            if (validate)
-            {
-                CheckNearLimits(value, minValue, maxValue, parameter);
-            }
-            return true;
-        }
+        rivate static bool ValidateRange(float value, float minValue, float maxValue, string parameter, bool validate)
+{
+    if (value < minValue || value > maxValue)
+    {
+        Console.WriteLine($"{parameter} is out of range!");
+        return false;
+    }
 
-        private static void CheckNearLimits(float value, float minValue, float maxValue, string parameter)
-        {
-            if (value > minValue && value < minValue + (minValue * 0.05f))
-            {
-                Console.WriteLine($"{parameter} is near the minimum range!");
-            }
-            else if (value < maxValue && value > (maxValue - (maxValue * 0.05f)))
-            {
-                Console.WriteLine($"{parameter} is near the maximum range!");
-            }
-        }
+    if (validate)
+    {
+        CheckNearLimits(value, minValue, maxValue, parameter);
+    }
+
+    return true;
+}
+
+private static void CheckNearLimits(float value, float minValue, float maxValue, string parameter)
+{
+    if (IsNearMinimum(value, minValue))
+    {
+        Console.WriteLine($"{parameter} is near the minimum range!");
+    }
+    else if (IsNearMaximum(value, maxValue))
+    {
+        Console.WriteLine($"{parameter} is near the maximum range!");
+    }
+}
+
+private static bool IsNearMinimum(float value, float minValue) =>
+    value > minValue && value < minValue + (minValue * 0.05f);
+
+private static bool IsNearMaximum(float value, float maxValue) =>
+    value < maxValue && value > (maxValue - (maxValue * 0.05f));
 
         private static bool ValidateChargeRate(float chargeRate)
         {
