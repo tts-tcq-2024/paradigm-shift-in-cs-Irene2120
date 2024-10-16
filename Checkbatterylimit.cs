@@ -1,5 +1,4 @@
 using System;
-
 namespace ParadigmShiftCSharp
 {
     class BatteryChecks
@@ -24,12 +23,10 @@ namespace ParadigmShiftCSharp
                 Console.WriteLine($"{parameter} is out of range!");
                 return false;
             }
-
             if (validate)
             {
                 CheckNearLimits(value, minValue, maxValue, parameter);
             }
-
             return true;
         }
 
@@ -52,12 +49,10 @@ namespace ParadigmShiftCSharp
                 Console.WriteLine("Charge Rate is out of range!");
                 return false;
             }
-
             if (chargeRate > (ChargeRateMax - (ChargeRateMax * 0.05f)))
             {
                 Console.WriteLine("Charge Rate is near the maximum range!");
             }
-
             return true;
         }
     }
