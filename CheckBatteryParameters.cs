@@ -4,10 +4,10 @@ namespace paradigm_shift_csharp
 {
   class BatteryParameterChecker
   {
-    private readonly WarningConfig_warningConfig;
-    public BatteryParameterChecker(WarningConfig wqarningConfig)
+    private readonly WarningConfigure warning_config;
+    public BatteryParameterChecker(WarningConfigure warningConfig)
     {
-      _warningConfig = warningConfig;
+      warning_config = warningConfig;
     }
     public bool batteryIsOk(float temp,float soc,float chargerate)
     {
