@@ -24,12 +24,12 @@ class Checker
     {
         if(temp<0 || temp>45)
         {
-            Console.Writeline("Temperature is out of range!");
+            Console.WriteLine("Temperature is out of range!");
             return false;
         }
         else if (temp>40)
         {
-            Console.Writeline("Warning: Approaching temperature limit!");
+            Console.WriteLine("Warning: Approaching temperature limit!");
         }
         return true;
     }
@@ -37,12 +37,12 @@ class Checker
     {
         if(soc<20 || soc>80)
         {
-            Console.Writeline("State of Charge is out of range!");
+            Console.WriteLine("State of Charge is out of range!");
             return false;
         }
         else if (soc<24)
         {
-            Console.Writeline("Warning: Approaching charge-peak!");
+            Console.WriteLine("Warning: Approaching charge-peak!");
         }
         return true;
     }
@@ -52,12 +52,12 @@ class Checker
     {
         if(chargerate>0.8)
         {
-            Console.Writeline("Charge Rate is out of range!");
+            Console.WriteLine("Charge Rate is out of range!");
             return false;
         }
         else if (chargerate>0076f)
         {
-            Console.Writeline("Warning: Approaching Charge rate limit!");
+            Console.WriteLine("Warning: Approaching Charge rate limit!");
         }
         return true;
     }
@@ -66,7 +66,7 @@ class Checker
     {
         if(expression)
         {
-            Console.Writeline("Expected false,but got true");
+            Console.WriteLine("Expected false,but got true");
             Environment.Exit(1);
         }
     }
@@ -74,7 +74,7 @@ static void ExpectTrue(bool expression)
     {
         if(expression)
         {
-            Console.Writeline("Expected true,but got false");
+            Console.WriteLine("Expected true,but got false");
             Environment.Exit(1);
         }
     }
@@ -83,7 +83,7 @@ static int Main()
 {
     ExpectTrue(batteryIsOk(25,70,0.7f));
     ExpectFalse(batteryIsOk(50,85,0.0f));
-    Console.Writeline("All ok");
+    Console.WriteLine("All ok");
     return 0;
 }
     class WarningConfig
