@@ -1,9 +1,11 @@
-namespace paradigm_shift_csharp
+using System;
+
+namespace ParadigmShiftCSharp
 {
-  class CheckBattery 
-  {
-    private const float chargerate_max =0.8f;
-    public static bool Checklimit(float input,float minvalue,float maxvalue,string parameter,bool validate)
+    class BatteryChecks
+    {
+        private const float ChargeRateMax = 0.8f;
+        public static bool LimitCheck(float input, float minValue, float maxValue, string parameter, bool validate)
         {
             HigherRangeWarning(input, maxValue, parameter, validate);
             LowerRangeWarning(input, minValue, parameter, validate);
@@ -43,6 +45,4 @@ namespace paradigm_shift_csharp
         }
 
     }
-}
-  }
 }
