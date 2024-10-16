@@ -6,8 +6,8 @@ class Checker
 {
     static WarningConfig warningConfig = new WarningConfig
     {
-        TempWarningThreshold = 5;
-        SoCWarningThreshold = 4;
+        TempWarningThreshold = 5,
+        SoCWarningThreshold = 4,
         ChargeRateWarningThreshold = 0.04f
         };
 
@@ -89,9 +89,9 @@ static int Main()
     class WarningConfig
     {
 
-        public float TempWarningThreshold{get;set}
-        public float SoCWarningThreshold{get;set}
-        public float ChargeRateWarningThreshold{get;set}
+        public float TempWarningThreshold{get;set;}
+        public float SoCWarningThreshold{get;set;}
+        public float ChargeRateWarningThreshold{get;set;}
     }
 
 }
